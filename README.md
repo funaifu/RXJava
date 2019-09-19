@@ -48,6 +48,24 @@
    然后由ScalarSynchronousObservable对象调用其lift(new OperatorSubscribeOn<T>(scheduler))方法，lift()方法最终会执行<br>
    new Observable<R>(new OnSubscribe<R>()）新建一个Observable对象我们称之为observable_3,<br>
    其持有的OnSubscribe新建对象我们称之为onSubscribe_3。
+    
+    
+4, observable_3调用订阅方法subscribe(new Subscriber<Object>())传入一个新建的Subscriber对象subscriber_1，如下图：
+    
+![](https://github.com/funaifu/RXJava/blob/master/image/just.jpg)
+    
+由图可知，subscriber会指向一个新建的SafeSubscriber对象，SafeSubscriber对象持有subscriber_1引用<br>
+最终执行hook.onSubscribeStart(observable, observable.onSubscribe).call(subscriber)这行代码<br>
+hook.onSubscribeStart()方法会返回当前对象的onSubscribe，由此可知最终执行的代码为：<br>
+observable_3.onSubscribe.call();
+
+
+    
+    
+    
+    
+    
+    
       
       
       
