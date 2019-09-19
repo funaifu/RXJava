@@ -38,15 +38,16 @@
    从源码中我们发现最终会调用nest().lift(new OperatorSubscribeOn<T>(scheduler))，那么我们先了解一下nest()方法的源码，如下图：
     
     
-     ![](https://github.com/funaifu/RXJava/blob/master/image/nest.jpg)
+  ![](https://github.com/funaifu/RXJava/blob/master/image/nest.jpg)
      
-      ![](https://github.com/funaifu/RXJava/blob/master/image/just.jpg)
+  ![](https://github.com/funaifu/RXJava/blob/master/image/just.jpg)
       
-   从上面两个图中，我们可以看到nest()方法最终会调用just方法，并且返回一个通过调用ScalarSynchronousObservable.create(value)方法创建的<br>
-   一个ScalarSynchronousObservable对象，该对象持有observable_2对象的引用。nest()方法执行完成后返回一个ScalarSynchronousObservable<br>
-   对象，然后由ScalarSynchronousObservable对象调用其lift(new OperatorSubscribeOn<T>(scheduler))方法，lift()方法最终会执行<br>
-    new Observable<R>(new OnSubscribe<R>()）新建一个Observable对象我们称之为observable_3,其持有的OnSubscribe新建对象我们称之为<br>
-    onSubscribe_3。
+   从上面两个图中，我们可以看到nest()方法最终会调用just方法，并且返回一个通过调用ScalarSynchronousObservable.create(value)<br>
+   方法创建的一个ScalarSynchronousObservable对象，该对象持有observable_2对象的引用。nest()方法执行<br>
+   完成后返回一个ScalarSynchronousObservable对象，<br>
+   然后由ScalarSynchronousObservable对象调用其lift(new OperatorSubscribeOn<T>(scheduler))方法，lift()方法最终会执行<br>
+   new Observable<R>(new OnSubscribe<R>()）新建一个Observable对象我们称之为observable_3,<br>
+   其持有的OnSubscribe新建对象我们称之为onSubscribe_3。
       
       
       
