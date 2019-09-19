@@ -3,4 +3,4 @@
 *************************************************
 
 
-![RXJava简单使用](https://github.com/funaifu/ArrayList/blob/master/image/ArryList%E5%B1%9E%E6%80%A7%E8%AF%B4%E6%98%8E.jpg)
+![RXJava简单使用](https://github.com/funaifu/RXJava/blob/master/image/RXJava%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8.jpg)
